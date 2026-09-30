@@ -6,6 +6,8 @@ pipeline {
         APP_NAME = 'jenkins-ghcr-demo'
         GHCR_IMAGE = 'ghcr.io/adarsh347/jenkins-ghcr-demo'
         GHCR_CREDENTIALS = 'ghcr-credentials'
+
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"
     }
 
     stages {
@@ -91,7 +93,7 @@ pipeline {
             echo 'Pipeline completed successfully!'
 
             mail(
-                to: 'adarshchandran6162@gmail.com',
+                to: 'YOUR_EMAIL@example.com',
                 subject: "SUCCESS: Jenkins Build #${BUILD_NUMBER}",
                 body: """
 Hello,
